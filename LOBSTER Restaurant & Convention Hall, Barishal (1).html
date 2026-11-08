@@ -1,0 +1,272 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LOBSTER Restaurant &amp; Convention Hall, Barishal</title>
+<meta name=description content="LOBSTER is a seafood restaurant and convention hall in Barishal, Bangladesh. Explore the menu, the hall and request a table.">
+<meta property=og:title content="LOBSTER Restaurant &amp; Convention Hall, Barishal"><meta property=og:description content="A taste of the ocean. An experience beyond."><meta property=og:type content=website>
+<link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;500&display=swap">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Restaurant","name":"LOBSTER Restaurant & Convention Hall","address":{"@type":"PostalAddress","addressLocality":"Barishal","addressCountry":"BD"}}</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+:root{--deep:#071D24;--teal:#123E46;--coral:#C65A35;--gold:#E6B66D;--salt:#F6F0E5;--bg:var(--deep);--fg:var(--salt);--alt:var(--salt);--altfg:var(--deep);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--alt:var(--teal);--altfg:var(--salt);color-scheme:dark}}
+:root[data-theme=dark]{--alt:var(--teal);--altfg:var(--salt);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(110% 70% at 80% 0,var(--teal),transparent 70%) fixed,var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+body.open{overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:25}
+h1,h2,h3,.logo,.pr{font-family:"Playfair Display",Georgia,serif;font-weight:500;line-height:1.1}
+h1{font-size:clamp(2.5rem,6.4vw,5.6rem)}h2{font-size:clamp(1.9rem,4.2vw,3.4rem)}h3{font-size:1.25rem}
+p{max-width:60ch}a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.2;transition:opacity .8s}
+[data-r=home] #gl{opacity:1}
+main{position:relative;z-index:1}
+.view{animation:in .6s ease}@keyframes in{from{opacity:0}}
+section,footer{padding:clamp(4rem,9vw,7.5rem) clamp(1.25rem,6vw,6rem)}
+.w{max-width:1180px;margin:auto}.alt{background:var(--alt);color:var(--altfg)}.teal{background:var(--teal)}
+#pr{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;z-index:40}
+#hd{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + .8rem) clamp(1.25rem,4vw,3rem) .8rem;transition:background .3s}
+#hd.s{background:rgba(7,29,36,.95)}
+.logo{font-size:1.5rem;letter-spacing:.14em;text-decoration:none;position:relative;z-index:2}
+#nv{display:flex;gap:1.6rem;align-items:center}
+#nv a{text-decoration:none;font-size:.92rem;padding:.3rem 0;border-bottom:1px solid transparent}
+#nv a[aria-current]{border-color:var(--gold)}#nv a.btn{padding:.6rem 1.2rem;border-color:var(--coral)}
+#bg{display:none;width:44px;height:44px;background:none;border:0;color:inherit;cursor:pointer;position:relative;z-index:2}
+#bg i{display:block;height:1.5px;background:currentColor;margin:7px 10px;transition:.3s}
+.open #bg i:first-child{transform:translateY(4.2px) rotate(45deg)}.open #bg i:last-child{transform:translateY(-4.2px) rotate(-45deg)}
+@media(max-width:900px){#bg{display:block}#nv{position:fixed;inset:0;z-index:1;background:var(--deep);flex-direction:column;justify-content:center;font-size:1.4rem;transform:translateY(-100%);transition:transform .45s}.open #nv{transform:none}#nv a{font-size:1.3rem}}
+.btn{display:inline-block;min-height:44px;padding:.8rem 1.5rem;background:var(--coral);border:1px solid var(--coral);border-radius:2px;color:var(--salt);font:600 .95rem/1.6 Inter,sans-serif;text-decoration:none;cursor:pointer;transition:.25s}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--deep)}.ghost{background:none;color:inherit;border-color:currentColor}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+.wm{position:absolute;left:0;right:0;bottom:-.1em;text-align:center;font:500 clamp(5rem,24vw,22rem)/1 "Playfair Display",Georgia,serif;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(230,182,109,.28);user-select:none}
+.hero .c{position:relative;max-width:36rem}.hero p{margin:1.4rem 0 2rem;font-size:1.1rem}
+.scroll{position:absolute;left:50%;bottom:1.2rem;width:44px;height:44px;margin-left:-22px;background:none;border:0;color:var(--gold);cursor:pointer}
+.scroll::after{content:"";position:absolute;left:50%;top:6px;height:30px;border-left:1px solid currentColor;animation:dr 2s ease-in-out infinite}
+@keyframes dr{50%{transform:translateY(8px);opacity:.4}}
+@media(max-width:800px){.hero{align-items:flex-end;padding-bottom:5rem}}
+.half{max-width:34rem}.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:center}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.row{display:flex;justify-content:space-between;gap:1.5rem;padding:1.3rem 0;border-top:1px solid rgba(230,182,109,.4)}
+.row p{font-size:.92rem;opacity:.8}.pr{white-space:nowrap;color:var(--gold)}.alt .pr{color:var(--coral)}.ph h3::after{content:" (placeholder)";font:400 .75rem Inter,sans-serif;opacity:.7}
+.photo{aspect-ratio:4/3;background:linear-gradient(135deg,var(--coral),var(--gold));display:grid;align-items:end;padding:1rem;color:var(--deep);font-size:.85rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 1rem}
+.chip{min-height:44px;padding:.5rem 1rem;border:1px solid var(--gold);border-radius:2px;background:none;color:inherit;font:inherit;cursor:pointer}.chip[aria-pressed=true]{background:var(--gold);color:var(--deep)}
+.menu{display:grid;grid-template-columns:1fr 1fr;column-gap:4rem;margin-top:1.5rem}@media(max-width:800px){.menu{grid-template-columns:1fr}}
+input,select,textarea{width:100%;padding:.8rem;background:rgba(246,240,229,.08);border:1px solid rgba(246,240,229,.35);border-radius:2px;color:inherit;font:inherit}option{color:#000}
+form{display:grid;gap:.9rem;max-width:560px}label{display:grid;gap:.3rem;font-size:.9rem}.err{color:#ffb4a0;min-height:1.1em;font-size:.82rem}[aria-invalid=true]{border-color:#ffb4a0}
+.status{display:none;padding:.8rem 1rem;border-left:3px solid var(--gold)}.status.ok,.status.bad{display:block}.status.bad{border-color:#ffb4a0}
+.rr{display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:2.2rem 0;border-top:1px solid rgba(230,182,109,.4)}@media(max-width:800px){.rr{grid-template-columns:1fr}}
+.ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(230,182,109,.4);border:1px solid rgba(230,182,109,.4);margin:2rem 0}.ev div{background:var(--bg);padding:1.6rem}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));grid-auto-rows:150px;grid-auto-flow:dense;gap:.8rem;margin:2rem 0}
+.t{position:relative;display:flex;align-items:flex-end;padding:1rem;border:0;border-radius:2px;color:var(--salt);font:inherit;text-align:left;cursor:pointer;overflow:hidden}
+.t::after{content:"";position:absolute;inset:auto 0 0;height:65%;background:linear-gradient(transparent,rgba(7,29,36,.8))}.t span{position:relative;z-index:1;transition:transform .3s}.t:hover span{transform:translateY(-4px)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(7,29,36,.97);display:none;place-content:center;gap:1rem;padding:1rem;text-align:center}#lb.on{display:grid}
+#lbt{width:min(90vw,820px);aspect-ratio:4/3;border-radius:2px}#lx{position:absolute;top:calc(env(safe-area-inset-top,0px) + .8rem);right:1rem;font-size:2rem;background:none;border:0;color:var(--salt);cursor:pointer;min-width:44px;min-height:44px}
+.map{aspect-ratio:16/9;border:1px dashed var(--gold);display:grid;place-items:center;text-align:center;padding:1rem;margin:1.5rem 0}
+footer{background:var(--deep);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;font-size:.92rem}footer a{display:block;margin:.3rem 0}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,::before,::after{animation:none!important;transition:none!important}.js .rv{opacity:1!important;transform:none!important}}
+[hidden]{display:none!important}
+::selection{background:var(--gold);color:var(--deep)}
+h1,h2{text-wrap:balance}
+.hero .c,.scroll{z-index:1}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,29,36,.7),transparent 55%);pointer-events:none}
+@media(max-width:800px){.hero::after{background:linear-gradient(0deg,rgba(7,29,36,.9),transparent 70%)}}
+#ad{min-height:40px;padding:.5rem 1.1rem;margin-right:.6rem;position:relative;z-index:2}
+.ov{position:fixed;inset:0;z-index:60;background:rgba(7,29,36,.97);overflow:auto;display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 1rem) 1rem 1rem}
+.ap{width:min(100%,920px);align-self:start;display:grid;gap:1.2rem}.ap h3{margin-top:1.5rem}.ap ul,.ap ol{padding-left:1.2rem;display:grid;gap:.4rem}
+.ai{display:grid;grid-template-columns:1.2fr 2fr .7fr 1fr auto;gap:.5rem;padding:.8rem 0;border-top:1px solid rgba(230,182,109,.3)}
+@media(max-width:800px){.ai{grid-template-columns:1fr 1fr}.ai input:nth-child(2){grid-column:1/-1}}
+body:has(.ov:not([hidden])){overflow:hidden}
+</style></head>
+<body data-r=home><div id=pr></div>
+<header id=hd><a class=logo href="#home">LOBSTER</a><nav id=nv aria-label=Primary></nav><button id=ad class=btn hidden>Admin</button><button id=bg aria-label="Open menu" aria-expanded=false><i></i><i></i></button></header>
+<canvas id=gl aria-hidden=true></canvas>
+<main>
+<div class=view id=v-home>
+<section class=hero><div class=wm aria-hidden=true>LOBSTER</div><div class=c><h1>A Taste of the Ocean. An Experience Beyond.</h1><p>Seafood dining and celebration spaces in Barishal, Bangladesh, made for long tables and good company.</p><div class=cta><a class=btn href="#menu">Explore Our Menu</a><a class="btn ghost" href="#contact">Reserve a Table</a></div></div><button class=scroll aria-label="Scroll to introduction"></button></section>
+<section id=intro><div class=w><div class=half><h2 class=rv>Where the ocean meets the table.</h2><p class=rv style="margin-top:1.2rem">LOBSTER is a seafood restaurant and convention hall in Barishal. The restaurant’s own story, founders and kitchen approach will be added here once confirmed.</p></div></div></section>
+<section><div class=w><h2 class=rv>Signature seafood</h2><div id=sig style="margin:2rem 0"></div><a class="btn ghost" href="#menu">See the full menu</a></div></section>
+<section class=alt><div class="w two"><div class=rv><h2>Chef’s selection</h2><p style="margin-top:1rem">The chef’s pick will be featured here. Add the dish name, a short description and a real photograph.</p></div><div class=photo>Photo placeholder</div></div></section>
+<section><div class=w><h2 class=rv>An evening at LOBSTER</h2><p class=rv style="margin-top:1.2rem">Describe the dining room, the service and what a first visit feels like. Real photography and guest words can be added once supplied.</p></div></section>
+<section class=teal><div class="w two"><h2 class=rv>Convention Hall</h2><div class=rv><p>A venue for weddings, corporate events, birthdays and family gatherings. Capacity, facilities and packages will be added once verified.</p><a class=btn style="margin-top:1.5rem" href="#convention-hall">Explore the hall</a></div></div></section>
+<section><div class=w><h2 class=rv>Gallery</h2><div class=gal id=gs></div><a class="btn ghost" href="#gallery">Open the gallery</a></div></section>
+<section class=alt style="text-align:center"><div class=w><h2 class=rv>Reserve a table</h2><p style="margin:1rem auto 2rem">Tell us when you plan to visit and how many will join you.</p><a class=btn href="#contact">Reserve a Table</a></div></section>
+</div>
+<div class=view id=v-menu hidden><section><div class=w><h1>Menu</h1><p style="margin-top:1rem">Placeholder menu. The original menu image has not been supplied, so no dish name or price here is final. Replace the ITEMS list in the page source with the real items and prices.</p><div class=chips id=chips></div><input id=q type=search placeholder="Search the menu" aria-label="Search the menu"><div class=menu id=ml></div></div></section></div>
+<div class=view id=v-about hidden><section><div class=w><h1>About LOBSTER</h1><div id=ab style="margin-top:3rem"></div></div></section></div>
+<div class=view id=v-gallery hidden><section><div class=w><h1>Gallery</h1><p style="margin-top:1rem">Every tile is an illustrative placeholder, not a photograph of the restaurant. Replace them with real photos before launch.</p><div class=gal id=gg></div></div></section></div>
+<div class=view id=v-convention-hall hidden><section><div class=w><h1>Convention Hall</h1><p style="margin-top:1rem">Weddings, corporate events and family celebrations. Capacity, facilities, packages and availability will be added once verified.</p><div class=ev id=ev></div><h2>Send an enquiry</h2><form id=hf1 style="margin-top:1.5rem"></form></div></section></div>
+<div class=view id=v-contact hidden><section><div class="w two" style="align-items:start"><div><h1>Reserve a table</h1><form id=rf style="margin-top:2rem"></form></div><div><h2>Visit and contact</h2><p id=ci style="margin-top:1rem"></p><div class=map>Google Maps embed goes here once the verified address is supplied.</div><h3>Convention Hall enquiry</h3><form id=hf2 style="margin-top:1rem"></form></div></div></section></div>
+<footer><div><a class=logo id=fx href="#home">LOBSTER</a><p>Restaurant &amp; Convention Hall</p></div><div id=fl></div><p id=fi></p></footer>
+</main>
+<div id=lb role=dialog aria-modal=true aria-label="Image viewer"><button id=lx aria-label="Close viewer">×</button><div id=lbt></div><p id=lbc style="margin:auto"></p><div class=cta style="justify-content:center"><button class="btn ghost" id=lp>Previous</button><button class="btn ghost" id=ln>Next</button></div></div>
+<div id=ow class=ov hidden role=dialog aria-modal=true aria-label="Owner access"><form id=owf><h2>Owner access</h2><p id=owp></p><label>Password<input id=owi type=password autocomplete=current-password></label><span class=err id=owe></span><div class=cta><button class=btn>Continue</button><button type=button class="btn ghost" id=owc>Cancel</button></div></form></div>
+<div id=adm class=ov hidden role=dialog aria-modal=true aria-label="Owner admin"><div class=ap><div class=cta style="justify-content:space-between;align-items:center"><h2>Owner admin</h2><div class=cta><button class="btn ghost" id=aso>Sign out</button><button class="btn ghost" id=acl>Close</button></div></div><div class=chips id=atabs></div><div id=apn></div></div></div>
+<script>
+document.documentElement.classList.add('js');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ROUTES={home:'Home',menu:'Menu',about:'About','convention-hall':'Convention Hall',gallery:'Gallery',contact:'Contact'};
+const CATS=['Signature Seafood','Main Course','Appetizers','Rice & Noodles','Beverages','Desserts','Set Lunch'];
+// Placeholder rows: [category, name, description, price]. Replace with the real menu (names and prices from the original menu image).
+const ITEMS=[];CATS.slice(0,6).forEach(c=>[1,2,3].forEach(n=>ITEMS.push([c,'Item name '+n,'Description to be added from the original menu',null])));
+[301,302,303,304,305,306].forEach(n=>ITEMS.push(['Set Lunch','Set Lunch '+n,'Contents to be added from the original menu',null]));
+const EVENTS=['Wedding','Corporate event','Birthday celebration','Family gathering','Private celebration','Social event'];
+const AB=[['Our story','Add the real story of LOBSTER here: when it opened, who started it and why.'],['Our philosophy','Add what the kitchen and the people behind it believe about seafood and hospitality.'],['The dining experience','Describe a typical visit, from arrival at the table to the last course.'],['Food quality','Add verified details about sourcing and preparation. Nothing is claimed until it is confirmed.'],['Hospitality','Describe how guests are welcomed and looked after, in the restaurant’s own words.'],['Restaurant atmosphere','Describe the room, the lighting and the sound once real photographs are available.']];
+const G=[['Seafood',2],['Signature dishes',1],['Restaurant interior',1],['Dining atmosphere',2],['Convention Hall',1],['Events and celebrations',2],['Seafood',1],['Convention Hall',1]];
+const cols=['var(--coral)','var(--gold)','var(--teal)','var(--deep)'];G.forEach((g,i)=>g[2]=`linear-gradient(${40+i*37}deg,var(--teal),${cols[i%4]})`);
+const tile=(g,i)=>`<button class=t style="grid-row:span ${g[1]};background:${g[2]}" data-i=${i}><span>${g[0]}<br><small>Illustrative placeholder</small></span></button>`;
+const row=i=>`<div class="row${i[3]?'':' ph'}"><div><h3>${esc(i[1])}</h3><p>${esc(i[2])}</p></div><span class=pr>${i[3]?'৳'+i[3]:'Price pending'}</span></div>`;
+$('#nv').innerHTML=Object.entries(ROUTES).map(([k,v])=>`<a href="#${k}">${v}</a>`).join('')+'<a class=btn href="#contact">Reserve a table</a>';
+$('#fl').innerHTML=Object.entries(ROUTES).map(([k,v])=>`<a href="#${k}">${v}</a>`).join('');
+$('#sig').innerHTML=ITEMS.filter(i=>i[0]==CATS[0]).map(row).join('');
+$('#gs').innerHTML=G.slice(0,4).map(tile).join('');$('#gs').onclick=e=>e.target.closest('.t')&&(location.hash='gallery');
+$('#gg').innerHTML=G.map(tile).join('');
+$('#ab').innerHTML=AB.map(a=>`<div class="rr rv"><h2>${a[0]}</h2><p>${a[1]}</p></div>`).join('');
+$('#ev').innerHTML=EVENTS.map(e=>`<div><h3>${e}</h3></div>`).join('');
+$('.scroll').onclick=()=>$('#intro').scrollIntoView();
+// menu
+let cat='All';
+function drawMenu(){const q=$('#q').value.toLowerCase();$('#chips').innerHTML=['All',...CATS].map(c=>`<button class=chip aria-pressed=${c==cat}>${c}</button>`).join('');
+$('#ml').innerHTML=ITEMS.filter(i=>(cat=='All'||i[0]==cat)&&(i[1]+i[2]).toLowerCase().includes(q)).map(row).join('')||'<p>No dishes match your search.</p>'}
+$('#chips').onclick=e=>{if(e.target.matches('.chip')){cat=e.target.textContent;drawMenu();$('.chip[aria-pressed=true]').focus()}};$('#q').oninput=drawMenu;drawMenu();
+// lightbox
+let li=0,opener;const lb=$('#lb');
+const show=i=>{li=(i+G.length)%G.length;$('#lbt').style.background=G[li][2];$('#lbc').textContent=G[li][0]+' (illustrative placeholder, not a photo of the restaurant)'};
+const shut=()=>{lb.classList.remove('on');opener&&opener.focus()};
+$('#gg').onclick=e=>{const b=e.target.closest('.t');if(b){opener=b;show(+b.dataset.i);lb.classList.add('on');$('#lx').focus()}};
+$('#lx').onclick=shut;$('#lp').onclick=()=>show(li-1);$('#ln').onclick=()=>show(li+1);
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key=='Escape')shut();if(e.key=='ArrowLeft')show(li-1);if(e.key=='ArrowRight')show(li+1)});
+// forms (front end only: nothing is sent)
+const F=(l,n,t='text')=>`<label>${l}<input name=${n} type=${t} required${t=='number'?' min=1 max=2000':''}><span class=err></span></label>`;
+const TA=(l,n)=>`<label>${l}<textarea name=${n} rows=3></textarea><span class=err></span></label>`;
+const SEL=(l,n,o)=>`<label>${l}<select name=${n} required><option value="">Choose</option>${o.map(x=>`<option>${x}</option>`).join('')}</select><span class=err></span></label>`;
+function submit(e){e.preventDefault();const f=e.target,d={},today=new Date().toLocaleDateString('en-CA');let ok=true;
+$$('input,select,textarea',f).forEach(i=>{const v=i.value.trim();let m='';
+if(i.required&&!v)m='This field is required.';
+else if(i.name=='phone'&&!/^\+?[\d\s-]{7,15}$/.test(v))m='Enter a phone number with 7 to 15 digits.';
+else if(i.name=='date'&&v<today)m='Choose today or a later date.';
+else if(i.type=='number'&&(+v<1||+v>2000))m='Enter a guest count of 1 or more.';
+i.parentElement.querySelector('.err').textContent=m;i.setAttribute('aria-invalid',!!m);if(m)ok=false;d[i.name]=v});
+const s=$('.status',f);s.className='status '+(ok?'ok':'bad');
+s.textContent=ok?'The details are valid, but nothing has been sent. This website is not connected to a booking system yet, so this is not a confirmed reservation. Please contact the restaurant directly.':'Please correct the highlighted fields.';
+if(ok)console.info('Payload ready for a backend such as Supabase:',d)}
+function mk(el,r){el.innerHTML=(r?F('Full name','name')+F('Phone number','phone','tel')+F('Date','date','date')+F('Time','time','time')+F('Number of guests','guests','number')+TA('Special requests','notes')+'<button class=btn>Request a table</button>':F('Full name','name')+F('Phone number','phone','tel')+SEL('Event type','event',EVENTS)+F('Event date','date','date')+F('Expected guests','guests','number')+TA('Tell us about your event','notes')+'<button class=btn>Send enquiry</button>')+'<p class=status role=status></p>';el.noValidate=true;el.onsubmit=submit}
+mk($('#rf'),1);mk($('#hf1'));mk($('#hf2'));
+// routing, nav, progress
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&(e.target.classList.add('in'),io.unobserve(e.target))),{threshold:.15});
+function route(){let h=location.hash.slice(1);if(!ROUTES[h])h='home';$$('.view').forEach(v=>v.hidden=v.id!='v-'+h);document.body.dataset.r=h;
+$$('#nv a:not(.btn)').forEach(a=>a.getAttribute('href')=='#'+h?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+document.title=h=='home'?'LOBSTER Restaurant & Convention Hall, Barishal':'LOBSTER | '+ROUTES[h];document.body.classList.remove('open');
+scrollTo({top:0,behavior:'instant'});window.ScrollTrigger&&ScrollTrigger.refresh()}
+$$('.rv').forEach(e=>io.observe(e));addEventListener('hashchange',route);route();
+$('#bg').onclick=()=>{const o=document.body.classList.toggle('open');$('#bg').setAttribute('aria-expanded',o)};$('#nv').onclick=()=>document.body.classList.remove('open');
+addEventListener('scroll',()=>{$('#hd').classList.toggle('s',scrollY>40);const m=document.documentElement.scrollHeight-innerHeight;$('#pr').style.transform=`scaleX(${m>0?scrollY/m:0})`},{passive:true});
+// owner access and admin (front end only: data stays on this device, see the Handover tab)
+const LS='lobster-site-v1',CT={phone:'',email:'',hours:'',address:'Barishal, Bangladesh',fb:'',ig:''};let PW='',DONE='';
+const sv=()=>{try{localStorage.setItem(LS,JSON.stringify({items:ITEMS,CT,PW,DONE}))}catch(e){}};
+try{const d=JSON.parse(localStorage.getItem(LS)||'null');if(d){d.items&&ITEMS.splice(0,ITEMS.length,...d.items);Object.assign(CT,d.CT);PW=d.PW||'';DONE=d.DONE||''}}catch(e){}
+const H=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode('lobster:'+s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+function drawContact(){const L=[['Address',CT.address],['Phone',CT.phone],['Email',CT.email],['Hours',CT.hours],['Facebook',CT.fb],['Instagram',CT.ig]];
+$('#ci').innerHTML=L.map(([k,v])=>k+': '+(v?esc(v):'to be added')).join('<br>');$('#fi').innerHTML=[CT.address,CT.phone,CT.hours].filter(Boolean).map(esc).join('<br>')}
+function refresh(){$('#sig').innerHTML=ITEMS.filter(i=>i[0]==CATS[0]).slice(0,3).map(row).join('');drawMenu();drawContact()}
+const fld=(k,l)=>`<label>${l}<input data-c=${k} value="${esc(CT[k])}"></label>`;
+const mt=()=>ITEMS.map((it,i)=>`<div class=ai><input data-i=${i} data-f=1 value="${esc(it[1])}" aria-label=Name><input data-i=${i} data-f=2 value="${esc(it[2])}" aria-label=Description><input data-i=${i} data-f=3 type=number min=0 value="${it[3]??''}" placeholder=Price aria-label=Price><select data-i=${i} data-f=0 aria-label=Category>${CATS.map(c=>`<option${c==it[0]?' selected':''}>${esc(c)}</option>`).join('')}</select><button class="btn ghost" data-del=${i}>Delete</button></div>`).join('')+'<button class=btn id=addi style="margin-top:1rem">Add item</button>';
+const ct=()=>[['phone','Phone'],['email','Email'],['hours','Opening hours'],['address','Address'],['fb','Facebook link'],['ig','Instagram link']].map(a=>fld(...a)).join('');
+const hv=()=>{const p=ITEMS.filter(i=>i[3]==null).length,R=[['Owner password created',!!PW],['Phone added',!!CT.phone],['Email added',!!CT.email],['Opening hours added',!!CT.hours],['Social links added',!!(CT.fb||CT.ig)],['All menu prices entered ('+p+' missing)',!p&&ITEMS.length>0]];
+return `<h3>Readiness: ${R.filter(r=>r[1]).length} of ${R.length}</h3><ul>${R.map(r=>`<li>${r[1]?'Done':'Open'}: ${r[0]}</li>`).join('')}</ul>
+<h3>Owner password</h3><form id=pw><label>New password (8 characters or more)<input id=np type=password minlength=8 autocomplete=new-password></label><button class=btn>Change password</button></form><p id=hs role=status></p>
+<h3>Backup</h3><p>Download a backup file, or copy the text below. Paste a backup into the box to restore it on any device.</p><div class=cta><button class=btn id=dlb>Download backup file</button><button class="btn ghost" id=rs>Restore from the text below</button></div><textarea id=bk rows=6 style="margin-top:.8rem">${esc(JSON.stringify({items:ITEMS,CT}))}</textarea>
+<h3>Handover steps</h3><ol><li>Developer: fill in the placeholders and clear every Open item above.</li><li>Owner: on their own device, tap the footer logo five times and create a personal password.</li><li>Owner: download a backup and keep it safe.</li><li>Developer: connect a backend such as Supabase so edits reach every visitor. Until then, edits stay on this device only.</li><li>Developer: deploy to the owner’s hosting and domain, then transfer the hosting, domain and backend accounts to the owner.</li></ol>
+<button class=btn id=hov>${DONE?'Handed over on '+DONE:'Mark as handed over'}</button>`};
+const TB={Menu:mt,Contact:ct,Handover:hv};let cur='Menu';
+function tab(t){cur=t;$('#atabs').innerHTML=Object.keys(TB).map(k=>`<button class=chip aria-pressed=${k==t}>${k}</button>`).join('');$('#apn').innerHTML=TB[t]()}
+async function saveBackup(){const t=JSON.stringify({items:ITEMS,CT},null,1);try{const dl=window.claude&&await claude.use('downloads');if(dl){await dl.save({filename:'lobster-backup.json',data:t});return}}catch(e){if(e&&e.code=='declined')return}
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'application/json'}));a.download='lobster-backup.json';a.click()}
+$('#atabs').onclick=e=>e.target.matches('.chip')&&tab(e.target.textContent);
+$('#apn').oninput=e=>{const t=e.target,i=t.dataset.i;if(i!=null)ITEMS[i][t.dataset.f]=t.dataset.f=='3'?(t.value===''?null:+t.value):t.value;else if(t.dataset.c)CT[t.dataset.c]=t.value;sv();refresh()};
+$('#apn').onclick=e=>{const t=e.target;
+if(t.dataset.del!=null){ITEMS.splice(+t.dataset.del,1);sv();refresh();tab(cur)}
+if(t.id=='addi'){ITEMS.push([CATS[0],'New dish','',null]);sv();refresh();tab(cur)}
+if(t.id=='dlb')saveBackup();
+if(t.id=='hov'){DONE=new Date().toLocaleDateString('en-GB');sv();tab(cur)}
+if(t.id=='rs'){try{const d=JSON.parse($('#bk').value);if(!Array.isArray(d.items))throw 0;ITEMS.splice(0,ITEMS.length,...d.items);Object.assign(CT,d.CT);sv();refresh();tab(cur);$('#hs').textContent='Backup restored.'}catch(x){$('#hs').textContent='That backup could not be read.'}}};
+$('#apn').onsubmit=async e=>{e.preventDefault();const v=$('#np').value;if(v.length<8){$('#hs').textContent='Use at least 8 characters.';return}PW=await H(v);sv();$('#np').value='';$('#hs').textContent='Password changed.'};
+const ad=$('#ad'),ow=$('#ow'),am=$('#adm');let taps=0,tt,own=0;
+try{own=sessionStorage.getItem('lobster-owner')}catch(e){}
+if(own&&PW)ad.hidden=false;
+const openAdmin=()=>{tab('Menu');am.hidden=false};
+ad.onclick=openAdmin;$('#acl').onclick=()=>am.hidden=true;$('#owc').onclick=()=>ow.hidden=true;
+$('#aso').onclick=()=>{try{sessionStorage.removeItem('lobster-owner')}catch(e){}ad.hidden=am.hidden=true};
+$('#fx').onclick=e=>{e.preventDefault();clearTimeout(tt);tt=setTimeout(()=>taps=0,1500);if(++taps>=5){taps=0;$('#owp').textContent=PW?'Enter the owner password.':'Choose a password of at least 8 characters. You will use it to open the admin panel.';ow.hidden=false;$('#owi').focus()}};
+$('#owf').onsubmit=async e=>{e.preventDefault();const v=$('#owi').value,er=$('#owe');
+if(v.length<8){er.textContent='Use at least 8 characters.';return}
+if(!(window.crypto&&crypto.subtle)){er.textContent='Admin needs a secure (https) connection.';return}
+const h=await H(v);if(!PW){PW=h;sv()}else if(h!=PW){er.textContent='Wrong password.';return}
+er.textContent='';$('#owi').value='';try{sessionStorage.setItem('lobster-owner','1')}catch(x){}ad.hidden=false;ow.hidden=true;openAdmin()};
+addEventListener('keydown',e=>e.key=='Escape'&&$$('.ov').forEach(o=>o.hidden=true));
+refresh();
+// 3D lobster, built from anatomy-based sweeps (lazy-loaded after page load)
+function gl(){const mob=innerWidth<800,RM=matchMedia('(prefers-reduced-motion:reduce)').matches,cv=$('#gl');
+try{const ren=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:!mob});ren.setPixelRatio(Math.min(devicePixelRatio,mob?1.5:2));ren.outputEncoding=THREE.sRGBEncoding;ren.toneMapping=THREE.ACESFilmicToneMapping;
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,50);cam.position.z=9;sc.fog=new THREE.Fog(0x071D24,10,24);
+sc.add(new THREE.HemisphereLight(0xE6B66D,0x123E46,.35));const k=new THREE.DirectionalLight(0xfff1dd,1.7);k.position.set(3,4,5);sc.add(k);const rim=new THREE.PointLight(0x4fb3bf,2.4,22);rim.position.set(-4,1,-3);sc.add(rim);
+ren.toneMappingExposure=1.3;
+const ev=document.createElement('canvas');ev.width=512;ev.height=256;const ec=ev.getContext('2d'),eg=ec.createLinearGradient(0,0,0,256);eg.addColorStop(0,'#d9f3f0');eg.addColorStop(.5,'#2b7f8c');eg.addColorStop(1,'#05161c');ec.fillStyle=eg;ec.fillRect(0,0,512,256);ec.fillStyle='#fff3da';ec.fillRect(70,40,110,24);ec.fillRect(340,28,130,18);
+const et=new THREE.CanvasTexture(ev);et.encoding=THREE.sRGBEncoding;const pm=new THREE.PMREMGenerator(ren);sc.environment=pm.fromEquirectangular(et).texture;pm.dispose();
+const cn=document.createElement('canvas');cn.width=cn.height=256;const cx=cn.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,256,256);
+for(let i=0;i<2600;i++){cx.fillStyle=Math.random()<.55?`rgba(70,10,5,${Math.random()*.22})`:`rgba(255,225,190,${Math.random()*.2})`;cx.beginPath();cx.arc(Math.random()*256,Math.random()*256,Math.random()*2.6+.5,0,6.283);cx.fill()}
+const tx=new THREE.CanvasTexture(cn);tx.wrapS=tx.wrapT=THREE.RepeatWrapping;tx.encoding=THREE.sRGBEncoding;
+const shell=new THREE.MeshPhysicalMaterial({vertexColors:true,map:tx,bumpMap:tx,bumpScale:2,roughness:.34,metalness:.04,clearcoat:.7,clearcoatRoughness:.28,envMapIntensity:.85,side:THREE.DoubleSide}),black=new THREE.MeshStandardMaterial({color:0x050505,roughness:.15,metalness:.3});
+const cTop=new THREE.Color(0xa62a16).convertSRGBToLinear(),cBel=new THREE.Color(0xf0b88a).convertSRGBToLinear(),cc=new THREE.Color();
+const V=(x,y,z)=>new THREE.Vector3(x,y,z),sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)},tp=(a,b)=>t=>(a+(b-a)*t)*Math.min(1,Math.sqrt(Math.min(t,1-t)*9));
+function sweep(pts,rad,asp=1,seg=26){const RG=14,cv=new THREE.CatmullRomCurve3(pts.map(p=>V(...p))),pos=[],uv=[],col=[],ix=[],N=V(0,0,0),B=V(0,0,0),up=V(0,1,0);
+for(let i=0;i<=seg;i++){const t=i/seg,c=cv.getPoint(t),T=cv.getTangent(t),r=rad(t);N.crossVectors(up,T).normalize();B.crossVectors(T,N);
+for(let j=0;j<=RG;j++){const a=j/RG*6.2832,ca=Math.cos(a),sa=Math.sin(a)*asp,x=N.x*ca+B.x*sa,y=N.y*ca+B.y*sa,z=N.z*ca+B.z*sa;
+pos.push(c.x+x*r,c.y+y*r,c.z+z*r);uv.push(j/RG*3,t*3);cc.lerpColors(cTop,cBel,sm(.15,-.6,y/(Math.hypot(x,y,z)||1)));col.push(cc.r,cc.g,cc.b);
+if(i<seg&&j<RG){const q=i*(RG+1)+j;ix.push(q,q+1,q+RG+1,q+RG+1,q+1,q+RG+2)}}}
+const ge=new THREE.BufferGeometry();ge.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));ge.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));ge.setAttribute('color',new THREE.Float32BufferAttribute(col,3));ge.setIndex(ix);ge.computeVertexNormals();return ge}
+const P=new THREE.Group(),g=new THREE.Group(),tail=new THREE.Group(),legs=[],ants=[],dact=[],mesh=(ge,par=g,o)=>{const m=new THREE.Mesh(ge,shell);o&&m.position.set(...o);par.add(m);return m};
+g.position.z=-.7;P.add(g);g.add(tail);sc.add(P);
+mesh(sweep([[0,.08,-.35],[0,.14,.35],[0,.12,.95],[0,.05,1.5]],t=>.62*Math.pow(Math.sin(Math.PI*(.18+.78*t)),.55)*Math.min(1,Math.sqrt((1-t)*7)),.88,34));
+mesh(sweep([[0,.16,1.35],[0,.22,1.85],[0,.2,2.15]],t=>.11*Math.pow(1-t,.9),.5,8));
+for(let i=0;i<6;i++){const z0=-.22-i*.34,z1=z0-.42,zm=(z0+z1)/2,R=.44-.045*i,y=-.02*i;
+mesh(sweep([[0,y,z0],[0,y-.005,zm],[0,y-.012,z1]],t=>R*(.9+.1*Math.sin(Math.PI*t)),.82,10),tail);
+[-1,1].forEach(s=>mesh(sweep([[s*.8*R,y-.02,zm],[s*(R+.1),y-.14,zm],[s*(R+.17),y-.3,zm]],t=>.2*Math.pow(Math.sin(Math.PI*(.1+.85*t)),.6),.22,8),tail))}
+const pad=sweep([[0,0,-.02],[0,-.03,-.3],[0,-.06,-.62]],t=>.2*Math.pow(Math.sin(Math.PI*(.08+.88*t)),.5),.12,12);
+[-.9,-.45,0,.45,.9].forEach(a=>{const m=mesh(pad,tail,[Math.sign(a)*.07,-.1,-2.3]);m.rotation.y=a;if(!a)m.scale.z=1.2});
+[-1,1].forEach(s=>{const k=s>0?1.12:.92;
+mesh(sweep([[s*.4,-.08,1],[s*.62,-.04,1.4],[s*.8,0,1.85]],tp(.15*k,.13*k),.85,14));
+mesh(sweep([[s*.8,0,1.85],[s*.9,0,2.15],[s,-.02,2.45]],tp(.13*k,.16*k),.85,10));
+mesh(sweep([[s,-.02,2.4],[s*1.1,-.03,2.9],[s*1.16,-.06,3.4],[s*1.05,-.08,3.9]],t=>k*.27*Math.pow(Math.sin(Math.PI*Math.min(.98,t*.8+.05)),.75)*(1-.55*sm(.5,1,t))*Math.min(1,Math.sqrt((1-t)*8)),.72,28));
+const d=new THREE.Group();d.position.set(s*1.1,.09,3);g.add(d);dact.push(d);
+mesh(sweep([[0,0,0],[0,-.01,.42],[s*-.06,-.08,.88]],t=>k*.12*(1-.75*t)*Math.min(1,Math.sqrt(Math.min(t,1-t)*8)),.8,14),d);
+const a=new THREE.Group();a.position.set(s*.1,.13,1.38);g.add(a);ants.push(a);
+mesh(sweep([[0,0,0],[s*.33,.23,.8],[s*.78,.18,1.9],[s*1.58,-.02,3.1],[s*2.5,-.15,4]],t=>.03*Math.pow(1-t,1.2)+.004,1,24),a);
+const b=new THREE.Group();b.position.set(s*.05,.1,1.4);g.add(b);ants.push(b);mesh(sweep([[0,0,0],[s*.1,.1,.55],[s*.2,.05,1.1]],t=>.016*(1-t)+.003,1,10),b);
+const ey=new THREE.Mesh(new THREE.SphereGeometry(.06,12,10),black);ey.position.set(s*.22,.2,1.28);g.add(ey);
+for(let j=0;j<4;j++){const l=new THREE.Group();l.position.set(s*.4,-.22,.9-j*.3);g.add(l);legs.push(l);
+mesh(sweep([[0,0,0],[s*.2,.1,.05],[s*.42,.2,.1]],tp(.05,.04),1,10),l);
+mesh(sweep([[s*.42,.2,.1],[s*.62,-.1,.2],[s*.78,-.45,.3]],tp(.045,.014),1,10),l)}});
+const n=mob?60:140,pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(n*3).map(()=>(Math.random()-.5)*14),3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xE6B66D,size:.03,transparent:true,opacity:.5}));sc.add(pts);
+const st={x:mob?0:2.5,y:mob?1.3:0,rx:-.2,ry:-.6,rz:0,s:1},base=mob?.42:.64,f=RM?0:1;
+const size=()=>{ren.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()};size();
+const draw=t=>{P.position.set(st.x,st.y+Math.sin(t*.8)*.12*f,0);P.rotation.set(st.rx+Math.sin(t*.6)*.04*f,st.ry+Math.sin(t*.4)*.1*f,st.rz);P.scale.setScalar(st.s*base);
+tail.rotation.x=Math.sin(t*1.1)*.05*f;legs.forEach((l,i)=>{l.rotation.z=Math.sin(t*1.6+i*1.3)*.08*f;l.rotation.x=Math.cos(t*1.4+i)*.06*f});ants.forEach((a,i)=>{a.rotation.y=Math.sin(t*.9+i*2)*.12*f;a.rotation.x=Math.sin(t*.7+i)*.05*f});dact.forEach((d,i)=>d.rotation.x=-(.1+.1*Math.sin(t*.8+i*2))*f);pts.rotation.y=t*.02*f;ren.render(sc,cam)};
+addEventListener('resize',()=>{size();RM&&draw(0);window.ScrollTrigger&&ScrollTrigger.refresh()});
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+gsap.timeline({scrollTrigger:{trigger:document.documentElement,start:'top top',end:'bottom bottom',scrub:1}})
+.to(st,{x:0,y:mob?1:.2,rx:.3,ry:0,s:1.15,duration:1})
+.to(st,{x:mob?-.4:-2.6,y:-.7,rx:.1,ry:.9,rz:.55,s:1,duration:1})
+.to(st,{x:0,y:-.2,rx:0,ry:1.571,rz:0,s:mob?.8:1,duration:1})
+.to(st,{x:mob?4:6.5,y:-3,ry:2.2,s:.4,duration:1})}
+if(RM)draw(0);else(function loop(){draw(performance.now()/1000);requestAnimationFrame(loop)})()
+}catch(e){cv.remove()}}
+addEventListener('load',()=>(window.requestIdleCallback||setTimeout)(gl));
+</script></body></html>
