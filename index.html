@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17120f">
+<meta name="description" content="Café Florentine — an intimate house of Italian-inspired dining, crafted rituals and timeless hospitality.">
+<title>Café Florentine — The House of Golden Hour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ink:#17120f;--ink2:#211914;--paper:#eee6d7;--paper2:#e3d7c2;--gold:#c6a66a;--gold2:#8c6b37;
+ --muted:#a99b87;--line:rgba(198,166,106,.27);--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+ --nav:78px;--ease:cubic-bezier(.2,.75,.2,1)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.075;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}img{display:block;width:100%;height:100%;object-fit:cover}
+::selection{background:var(--gold);color:var(--ink)}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:1000}
+.topline{height:30px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);color:var(--gold);font-size:9px;letter-spacing:.28em;text-transform:uppercase}
+header{height:var(--nav);padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(23,18,15,.88);backdrop-filter:blur(18px);z-index:100}
+.brand{display:flex;align-items:center;gap:13px}.seal{width:37px;height:37px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:600 17px var(--serif);position:relative}.seal:after{content:"";position:absolute;inset:4px;border:1px solid rgba(198,166,106,.35);border-radius:50%}
+.brandname{font:500 22px var(--serif);letter-spacing:.04em}.brandname small{display:block;font:9px var(--sans);letter-spacing:.29em;color:var(--gold);text-transform:uppercase;margin-top:-3px}
+nav{display:flex;gap:29px;align-items:center}nav a,.nav-cta{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#d6cbb9;transition:.25s}nav a:hover{color:var(--gold)}
+.nav-cta,.btn{border:1px solid var(--gold);padding:13px 19px;color:var(--gold);background:transparent;letter-spacing:.16em;text-transform:uppercase;font-size:9px;transition:.3s}
+.nav-cta:hover,.btn:hover{background:var(--gold);color:var(--ink)}
+.menu-toggle{display:none;background:none;border:0;color:var(--gold);font-size:22px}
+.hero{min-height:calc(100svh - 108px);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-copy{padding:12vh 8vw 10vh 10vw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.kicker{color:var(--gold);font-size:9px;letter-spacing:.34em;text-transform:uppercase;display:flex;align-items:center;gap:13px}.kicker:before{content:"";width:34px;height:1px;background:var(--gold)}
+h1,h2,h3,p{margin-top:0}h1{font:400 clamp(64px,8vw,118px)/.83 var(--serif);letter-spacing:-.045em;margin:30px 0 24px;max-width:650px}
+h1 em,h2 em{color:var(--gold);font-weight:400}.hero-copy>p{max-width:390px;color:#b8ab99;font-size:13px;line-height:2;margin-bottom:33px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn-fill{background:var(--gold);color:var(--ink)}.btn-fill:hover{background:var(--paper);border-color:var(--paper)}
+.hero-note{margin-top:70px;color:#887b6b;font:italic 15px var(--serif);letter-spacing:.04em}
+.hero-visual{position:relative;min-height:630px}.hero-visual:before{content:"";position:absolute;inset:8% 8% 8% 0;border:1px solid var(--gold2);z-index:2;pointer-events:none}
+.hero-img{position:absolute;inset:0 0 0 9%;overflow:hidden}
+.hero-img img{filter:brightness(.75) saturate(.72);animation:slowzoom 18s ease-in-out infinite alternate}
+@keyframes slowzoom{to{transform:scale(1.08)}}
+.hero-vertical{position:absolute;right:3%;bottom:12%;writing-mode:vertical-rl;color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase;z-index:3}
+.hero-stamp{position:absolute;left:2%;bottom:11%;width:116px;height:116px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;text-align:center;z-index:4;font:italic 18px/.95 var(--serif);transform:rotate(-12deg);box-shadow:0 10px 40px #0008}
+.hero-stamp span{font:8px var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;color:var(--gold);white-space:nowrap}
+.marquee-track{display:inline-flex;gap:42px;animation:marquee 32s linear infinite;font:italic 19px var(--serif);letter-spacing:.06em}
+.marquee b{font:10px var(--sans);font-weight:300;opacity:.7}
+@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:120px 8vw}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:54px}
+.eyebrow{color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:17px}
+h2{font:400 clamp(46px,6vw,82px)/.92 var(--serif);letter-spacing:-.035em;margin:0}
+.section-head>p{max-width:320px;color:#a99b87;font-size:12px;line-height:1.9;margin:0}
+.story{background:var(--paper);color:var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:center}
+.story .eyebrow{color:var(--gold2)}.story h2{max-width:560px}.story p{color:#61574b;font-size:13px;line-height:2;max-width:480px;margin:25px 0}
+.story-art{height:590px;position:relative;padding:0 8% 8% 0}.story-art:before{content:"";position:absolute;inset:8% 0 0 8%;border:1px solid var(--gold2)}
+.story-art img{position:relative;z-index:1;filter:sepia(.15) saturate(.75)}
+.story-caption{position:absolute;z-index:2;bottom:0;left:0;background:var(--ink);color:var(--gold);padding:18px 24px;font:italic 18px var(--serif)}
+.menu-section{background:var(--ink2)}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.menu-card{background:var(--ink2);padding:28px 30px;display:grid;grid-template-columns:90px 1fr auto;gap:22px;align-items:center;min-height:132px;transition:background .3s}
+.menu-card:hover{background:#2c2119}.dish-thumb{height:86px;overflow:hidden}.dish-thumb img{transition:transform .6s var(--ease)}.menu-card:hover img{transform:scale(1.08)}
+.dish-type{font-size:8px;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;margin-bottom:7px}
+.dish-name{font:500 24px var(--serif);margin:0 0 4px}.dish-desc{font-size:10px;color:#a99b87;line-height:1.7;margin:0;max-width:280px}.dish-price{font:italic 19px var(--serif);color:var(--gold);white-space:nowrap}
+.menu-foot{display:flex;justify-content:space-between;align-items:center;margin-top:25px;color:#a99b87;font-size:10px;letter-spacing:.08em}
+.experience{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:center}
+.experience-image{height:640px;position:relative}.experience-image:after{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid var(--gold2);z-index:-1}
+.experience-image img{filter:brightness(.8) saturate(.72)}
+.experience-copy p{color:#a99b87;font-size:13px;line-height:2;margin:28px 0;max-width:420px}
+.experience-list{border-top:1px solid var(--line);margin-top:35px}
+.experience-list div{padding:17px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font:italic 19px var(--serif);color:#d9cbb7}.experience-list span{color:var(--gold);font:9px var(--sans);letter-spacing:.16em}
+.gallery{padding-top:40px}.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr;grid-template-rows:250px 250px;gap:14px}
+.gallery-grid figure{margin:0;overflow:hidden;position:relative}.gallery-grid figure:first-child{grid-row:span 2}.gallery-grid figure:nth-child(4){grid-column:2/4}
+.gallery-grid img{filter:brightness(.76) saturate(.72);transition:transform .8s var(--ease),filter .8s}.gallery-grid figure:hover img{transform:scale(1.06);filter:brightness(.95) saturate(.9)}
+.gallery-grid figcaption{position:absolute;bottom:15px;left:18px;color:#f0e5d2;font:italic 18px var(--serif);text-shadow:0 2px 10px #000}
+.reservation{background:var(--paper);color:var(--ink);display:grid;grid-template-columns:.85fr 1.15fr;gap:9vw;align-items:start}
+.reservation .eyebrow{color:var(--gold2)}.reservation h2{max-width:430px}.reservation-copy p{color:#65594b;font-size:13px;line-height:2;margin-top:25px;max-width:340px}
+.res-form{display:grid;grid-template-columns:1fr 1fr;gap:22px}.field{display:flex;flex-direction:column;gap:9px}.field.full{grid-column:1/-1}.field label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#776957}.field input,.field select,.field textarea{border:0;border-bottom:1px solid #b8a88f;background:transparent;padding:12px 0;color:var(--ink);outline:none;border-radius:0;font:300 13px var(--sans)}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold2)}.field select option{background:var(--paper)}
+.res-form .btn{justify-self:start;background:var(--ink);color:var(--gold);margin-top:8px}.res-form .btn:hover{background:var(--gold);color:var(--ink)}
+.form-note{grid-column:1/-1;font-size:10px;color:#8b7b67;line-height:1.7}
+.quote{padding:130px 10vw;text-align:center;background:linear-gradient(rgba(23,18,15,.78),rgba(23,18,15,.92)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85') center/cover fixed}
+.quote blockquote{max-width:900px;margin:24px auto 28px;font:italic clamp(34px,5vw,64px)/1.12 var(--serif);color:var(--paper)}.quote small{color:var(--gold);font-size:9px;letter-spacing:.28em;text-transform:uppercase}
+footer{padding:70px 8vw 30px;background:#100d0b;border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:45px;padding-bottom:60px}.footer-brand p{max-width:250px;color:#887b6b;font-size:11px;line-height:1.9;margin-top:18px}.footer-col h4{color:var(--gold);font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;margin:4px 0 20px}.footer-col a,.footer-col p{display:block;color:#b5a894;font-size:11px;margin:0 0 12px}.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;color:#766b5e;font-size:9px;letter-spacing:.1em}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.visible{opacity:1;transform:none}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:var(--gold);color:var(--ink);padding:13px 20px;font-size:11px;letter-spacing:.04em;opacity:0;pointer-events:none;transition:.3s;z-index:300}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){nav{gap:16px}nav a{font-size:9px}.hero-copy{padding-left:7vw}.story,.experience,.reservation{gap:5vw}.menu-card{grid-template-columns:70px 1fr auto;padding:22px 18px;gap:15px}.dish-thumb{height:70px}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){
+ :root{--nav:66px}.topline{font-size:8px;letter-spacing:.18em}header{padding:0 5vw}.brandname{font-size:19px}.seal{width:32px;height:32px}
+ .menu-toggle{display:block}nav{display:none;position:absolute;top:65px;left:0;right:0;background:#17120f;padding:25px 7vw 32px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:22px}nav.open{display:flex}nav a{font-size:11px}.nav-cta{display:inline-block}
+ .hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:85px 8vw 60px}.hero h1{font-size:76px}.hero-note{margin-top:45px}.hero-visual{min-height:440px}.hero-img{inset:0 0 0 8%}.hero-visual:before{inset:5% 6% 5% 0}.hero-stamp{width:92px;height:92px;font-size:15px;left:3%;bottom:7%}
+ section{padding:82px 7vw}.section-head{display:block;margin-bottom:35px}.section-head>p{margin-top:20px}.story,.experience,.reservation{grid-template-columns:1fr;gap:45px}.story-art{height:430px;order:-1}.story h2,.reservation h2{font-size:59px}
+ .menu-grid{grid-template-columns:1fr}.menu-card{grid-template-columns:75px 1fr auto;padding:17px 13px;gap:13px}.dish-name{font-size:21px}.dish-desc{font-size:9px}.dish-price{font-size:17px}.menu-foot{gap:20px;align-items:flex-start;flex-direction:column}
+ .experience-image{height:430px;margin-right:14px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 180px 180px}.gallery-grid figure:first-child{grid-row:span 2}.gallery-grid figure:nth-child(4){grid-column:1/-1}
+ .res-form{grid-template-columns:1fr}.field.full,.form-note{grid-column:auto}.quote{padding:95px 8vw;background-attachment:scroll}
+ .footer-top{grid-template-columns:1fr 1fr;gap:35px 20px}.footer-brand{grid-column:1/-1}.footer-bottom{gap:15px;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="topline">A modern Italian table · An old-world state of mind</div>
+<header>
+ <a class="brand" href="#home" aria-label="Café Florentine home"><span class="seal">F</span><span class="brandname">Café Florentine<small>Casa della cucina</small></span></a>
+ <button class="menu-toggle" id="toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+ <nav id="nav">
+  <a href="#story">Our story</a><a href="#menu">The menu</a><a href="#experience">Experiences</a><a href="#gallery">Gallery</a>
+  <a class="nav-cta" href="#reserve">Reserve a table ↗</a>
+ </nav>
+</header>
+<main id="home">
+<section class="hero" style="padding:0">
+ <div class="hero-copy">
+  <div class="kicker">Est. in the spirit of Florence</div>
+  <h1>The art of<br><em>lingering.</em></h1>
+  <p>Where the warmth of an Italian table meets the quiet theatre of a golden evening. Come for the flavours. Stay for the feeling.</p>
+  <div class="hero-actions"><a class="btn btn-fill" href="#reserve">Reserve your evening ↗</a><a class="btn" href="#menu">Explore the menu</a></div>
+  <div class="hero-note">“La dolce vita, served slowly.”</div>
+ </div>
+ <div class="hero-visual">
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=90" alt="Elegant candlelit restaurant table"></div>
+  <div class="hero-vertical">A table worth remembering · Firenze spirit</div>
+  <div class="hero-stamp">Made with<br>intention<br><span>Every single day</span></div>
+ </div>
+</section>
+<div class="marquee"><div class="marquee-track"><span>Good food. Unhurried moments.</span><b>✦</b><span>La bellezza della tavola.</span><b>✦</b><span>Good food. Unhurried moments.</span><b>✦</b><span>La bellezza della tavola.</span><b>✦</b></div></div>
+
+<section class="story" id="story">
+ <div class="story-art reveal"><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b6?auto=format&fit=crop&w=1100&q=85" alt="Thoughtfully plated restaurant dish"><div class="story-caption">A little ceremony in every detail.</div></div>
+ <div class="reveal"><div class="eyebrow">01 — The Florentine spirit</div><h2>Not simply a meal.<br><em>A way of being.</em></h2><p>Inspired by the timeless rituals of Italian dining, Café Florentine is a place to slow down, share generously and savour the small details. A considered menu, warm hospitality and an atmosphere that makes an ordinary day feel like an occasion.</p><p>Our philosophy is simple: beautiful ingredients, thoughtful craft and a table where everyone belongs.</p><a class="btn" href="#experience">Discover our philosophy ↗</a></div>
+</section>
+
+<section class="menu-section" id="menu">
+ <div class="section-head reveal"><div><div class="eyebrow">02 — From our kitchen</div><h2>A menu with<br><em>character.</em></h2></div><p>Familiar comforts, generous plates and little discoveries. A selection from the Café Florentine menu.</p></div>
+ <div class="menu-grid reveal">
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=300&q=80" alt="Grilled squid"></div><div><div class="dish-type">To begin · Seafood</div><h3 class="dish-name">Grilled Squid</h3><p class="dish-desc">Charred tender squid with a bright, savoury finish.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=300&q=80" alt="Soup"></div><div><div class="dish-type">To begin · Comfort</div><h3 class="dish-name">Pumpkin Soup</h3><p class="dish-desc">A velvety seasonal bowl, warm and delicate.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1579208030886-b937da0925dc?auto=format&fit=crop&w=300&q=80" alt="Fish and chips"></div><div><div class="dish-type">Main · House classic</div><h3 class="dish-name">British Classic Fish & Chips</h3><p class="dish-desc">Crispy fish fillet, French fries and tartar sauce.</p></div><div class="dish-price">৳1,300</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=300&q=80" alt="Seafood platter"></div><div><div class="dish-type">Main · From the sea</div><h3 class="dish-name">Seafood Platter</h3><p class="dish-desc">A generous selection inspired by the coast.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=300&q=80" alt="Chicken BBQ pizza"></div><div><div class="dish-type">Oven · Signature</div><h3 class="dish-name">Chicken BBQ Pizza</h3><p class="dish-desc">A golden crust with smoky barbecue character.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=300&q=80" alt="Blueberry cheesecake"></div><div><div class="dish-type">Sweet ending · Dessert</div><h3 class="dish-name">Blueberry Cheesecake</h3><p class="dish-desc">Creamy, delicate and finished with berries.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1513558161293-c13c7b5a4a3b?auto=format&fit=crop&w=300&q=80" alt="Mint lime drink"></div><div><div class="dish-type">From the bar · Refreshing</div><h3 class="dish-name">Mint Lime</h3><p class="dish-desc">A cooling citrus ritual with fresh mint.</p></div><div class="dish-price">—</div></article>
+  <article class="menu-card"><div class="dish-thumb"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80" alt="Freshly baked pizza"></div><div><div class="dish-type">A little more</div><h3 class="dish-name">Ask for the day's special</h3><p class="dish-desc">Let our team guide you through the latest selection.</p></div><div class="dish-price">✦</div></article>
+ </div>
+ <div class="menu-foot"><span>Menu selection shown for presentation · Confirm items and prices with the restaurant.</span><a class="btn" href="#reserve">Plan your visit ↗</a></div>
+</section>
+
+<section class="experience" id="experience">
+ <div class="experience-image reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85" alt="Warm elegant dining room"></div>
+ <div class="experience-copy reveal"><div class="eyebrow">03 — Beyond the plate</div><h2>Make an evening<br><em>of it.</em></h2><p>Some occasions deserve more than a quick dinner. Gather your favourite people, mark a milestone or simply give an ordinary evening a little more meaning.</p>
+ <div class="experience-list"><div>Intimate dinners <span>01 / TOGETHER</span></div><div>Celebrations <span>02 / MOMENTS</span></div><div>Private gatherings <span>03 / YOUR TABLE</span></div></div><a class="btn" style="margin-top:30px;display:inline-block" href="#reserve">Enquire about an occasion ↗</a></div>
+</section>
+
+<section class="gallery" id="gallery">
+ <div class="section-head reveal"><div><div class="eyebrow">04 — A visual taste</div><h2>The details<br><em>stay with you.</em></h2></div><p>From the first pour to the last candle, every detail belongs to the experience.</p></div>
+ <div class="gallery-grid reveal">
+  <figure><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85" alt="Fine dining table"><figcaption>The table is set.</figcaption></figure>
+  <figure><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=85" alt="Freshly prepared soup"><figcaption>Made with care.</figcaption></figure>
+  <figure><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b6?auto=format&fit=crop&w=700&q=85" alt="Beautifully plated food"><figcaption>A moment to savour.</figcaption></figure>
+  <figure><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=85" alt="Restaurant interior"><figcaption>Stay a little longer.</figcaption></figure>
+ </div>
+</section>
+
+<section class="reservation" id="reserve">
+ <div class="reservation-copy reveal"><div class="eyebrow">05 — Your table awaits</div><h2>Let us save<br><em>you a place.</em></h2><p>Tell us a little about your visit. Our team can confirm your reservation personally.</p><p style="font:italic 18px var(--serif);color:#8b6b3d">A presto. See you soon.</p></div>
+ <form class="res-form reveal" id="reservationForm">
+  <div class="field"><label for="guest">Your name</label><input id="guest" name="guest" required placeholder="Full name"></div>
+  <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" required type="tel" placeholder="+880"></div>
+  <div class="field"><label for="date">Preferred date</label><input id="date" name="date" required type="date"></div>
+  <div class="field"><label for="time">Preferred time</label><select id="time" name="time" required><option value="">Choose a time</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option></select></div>
+  <div class="field"><label for="people">Guests</label><select id="people" name="people" required><option value="">Number of guests</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select></div>
+  <div class="field"><label for="occasion">Occasion</label><select id="occasion" name="occasion"><option>Just because</option><option>Birthday</option><option>Anniversary</option><option>Business dinner</option><option>Other celebration</option></select></div>
+  <div class="field full"><label for="message">A note for our team</label><textarea id="message" name="message" rows="2" placeholder="Any preferences or special requests?"></textarea></div>
+  <button class="btn" type="submit">Request a reservation ↗</button>
+  <div class="form-note">Demo interaction only: connect the form to the restaurant's booking system, email or WhatsApp before publishing. This page does not yet send reservation requests.</div>
+ </form>
+</section>
+<section class="quote"><small>The Florentine philosophy</small><blockquote>“The best memories are made around a table, with nowhere else to be.”</blockquote><small>Café Florentine · Hospitality, thoughtfully served</small></section>
+</main>
+<footer>
+ <div class="footer-top">
+  <div class="footer-brand"><a class="brand" href="#home"><span class="seal">F</span><span class="brandname">Café Florentine<small>Casa della cucina</small></span></a><p>An intimate house of Italian-inspired dining, crafted rituals and timeless hospitality.</p></div>
+  <div class="footer-col"><h4>Explore</h4><a href="#story">Our story</a><a href="#menu">The menu</a><a href="#experience">Experiences</a><a href="#gallery">Gallery</a></div>
+  <div class="footer-col"><h4>Visit</h4><p>Location details to be confirmed</p><p>Opening hours to be confirmed</p></div>
+  <div class="footer-col"><h4>Connect</h4><p>Contact details to be added</p><a href="#reserve">Reservation enquiry ↗</a></div>
+ </div>
+ <div class="footer-bottom"><span>© <span id="year"></span> CAFÉ FLORENTINE. ALL RIGHTS RESERVED.</span><span>CRAFTED FOR THE ART OF LINGERING.</span></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const progress=document.getElementById('progress');
+addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%'},{passive:true});
+const toggle=document.getElementById('toggle'),nav=document.getElementById('nav');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰'});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.getElementById('year').textContent=new Date().getFullYear();
+const date=document.getElementById('date');date.min=new Date().toISOString().split('T')[0];
+document.getElementById('reservationForm').addEventListener('submit',e=>{e.preventDefault();const toast=document.getElementById('toast');toast.textContent='Demo only — connect a booking channel before accepting real reservations.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),4200)});
+</script>
+</body>
+</html>
